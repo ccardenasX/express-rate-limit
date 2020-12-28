@@ -6,7 +6,7 @@ Basic rate-limiting middleware for Express. Use to limit repeated requests to pu
 
 Plays nice with [express-slow-down](https://www.npmjs.com/package/express-slow-down).
 
-Note: this module does not share state with other processes/servers by default. It also buckets all requests to an internal clock rather than starting a new timer for each end-user. It's fine for abuse-prevention but might not produce the desired effect when attempting to strictly enforce API rate-limits or similar. If you need a more robust solution, I recommend using an external store:
+Note: this module does not share state with other processes/servers by default. It also buckets all requests to an internal clock rather than starting a new timer for each end-user. 
 
 
 ## Install
