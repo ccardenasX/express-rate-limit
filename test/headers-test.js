@@ -17,8 +17,15 @@ describe("headers", () => {
     const windowMs = 60 * 1000; // 60 * 1000 = 1 minute
     const app = createAppWith(
       rateLimit({
-        windowMs: windowMs,
-        limit: limit,
+        domainOptions: [
+          {
+            domain: "*",
+            options: {
+              max: limit,
+              windowMs: windowMs,
+            },
+          },
+        ],
         headers: true,
       })
     );
@@ -46,8 +53,15 @@ describe("headers", () => {
     const windowMs = 60 * 1000; // 60 * 1000 = 1 minute
     const app = createAppWith(
       rateLimit({
-        windowMs: windowMs,
-        limit: limit,
+        domainOptions: [
+          {
+            domain: "*",
+            options: {
+              max: limit,
+              windowMs: windowMs,
+            },
+          },
+        ],
         draft_polli_ratelimit_headers: true,
       })
     );
@@ -66,9 +80,15 @@ describe("headers", () => {
 
     const app = createAppWith(
       rateLimit({
-        windowMs: windowSeconds * 1000,
-        delayMs: 0,
-        max: 1,
+        domainOptions: [
+          {
+            domain: "*",
+            options: {
+              max: 1,
+              windowMs: windowSeconds * 1000,
+            },
+          },
+        ],
       })
     );
     await request(app).get("/").expect(200);

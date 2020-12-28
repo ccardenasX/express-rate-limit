@@ -1,0 +1,6 @@
+{
+    "call-nic.com":{
+        "windowMs":3600,
+        "max":20
+    }
+}
